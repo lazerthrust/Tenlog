@@ -98,14 +98,14 @@ BOF UPDATE LOG
 EOF UPDATE LOG
 */
 
-#define VERSION_STRING "1.0.31"
+#define VERSION_STRING "1.0.31-LT"
 //#define TL_DEBUG
 
 //#define MODEL_H2P     //TL-Hands2 Pro
-#define MODEL_D3P //TL-D3 Pro
+//#define MODEL_D3P //TL-D3 Pro
 //#define MODEL_D4P
 //#define MODEL_D5P
-//#define MODEL_D6P
+#define MODEL_D6P
 //#define MODEL_M3
 //#define MODEL_D2P		//TL-Hands2
 //#define MODEL_D3S
@@ -128,8 +128,8 @@ EOF UPDATE LOG
 
 // The pullups are needed if you directly connect a mechanical endswitch between the signal and ground pins.
 const bool X_ENDSTOPS_INVERTING = true;
-const bool Y_ENDSTOPS_INVERTING = true; //Y Optical switch
-//const bool Y_ENDSTOPS_INVERTING = false;            //Y Mechanical switch
+//const bool Y_ENDSTOPS_INVERTING = true; //Y Optical switch
+const bool Y_ENDSTOPS_INVERTING = true;            //Y Mechanical switch
 
 //#define MIX_COLOR_TEST
 //#define ELECTROMAGNETIC_VALVE    //evaluation version for Profesor Shen from Jilin University
@@ -138,12 +138,12 @@ const bool Y_ENDSTOPS_INVERTING = true; //Y Optical switch
 #define INVERT_X_DIR false
 #define INVERT_Z_DIR false
 #define INVERT_E0_DIR true
-#define INVERT_E1_DIR false
+#define INVERT_E1_DIR true
 #elif defined(DRIVER_4988)
 #define INVERT_X_DIR true
 #define INVERT_Z_DIR true
 #define INVERT_E0_DIR false
-#define INVERT_E1_DIR true
+#define INVERT_E1_DIR false
 #endif
 
 #if defined(DRIVER_2225)
@@ -158,7 +158,7 @@ const bool Y_ENDSTOPS_INVERTING = true; //Y Optical switch
 #else
 #define DEFAULT_AXIS_STEPS_PER_UNIT \
     {                             \
-        80, 80, 800, 395          \
+        80, 80, 800, 450          \
     }
 #define DEFAULT_MAX_FEEDRATE \
     {                        \
@@ -201,7 +201,7 @@ const bool Y_ENDSTOPS_INVERTING = true; //Y Optical switch
 #endif
 
 #define X_MIN_POS -50
-#define X2_MIN_POS 0           // set minimum to ensure second x-carriage doesn't hit the parked first X-carriage
+#define X2_MIN_POS 20           // set minimum to ensure second x-carriage doesn't hit the parked first X-carriage
 
 #ifdef TL_SIZE_220
 #define DEFAULT_DUPLICATION_X_OFFSET 115
